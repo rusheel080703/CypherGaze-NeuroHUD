@@ -30,6 +30,8 @@ def main():
     emotion = None
     try:
         cap = cv2.VideoCapture(0)
+        cap.set(cv2.CAP_PROP_AUTO_EXPOSURE, 0) # Disable auto-exposure
+        cap.set(cv2.CAP_PROP_EXPOSURE, -3)    # Set a stable, slightly lower exposure
         if not cap.isOpened():
             print('Error: Could not open webcam. Ensure a camera is connected.')
             return
